@@ -1,3 +1,6 @@
+import React from "react";
+import ReactDOM from "react-dom"
+
 const heading = React.createElement("h1", { id: "heading" }, "helo react");
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(heading);
@@ -21,7 +24,7 @@ const head = React.createElement(
     { id: "child" },
     // if u need to create multiple siblings we have to create a array
     
-      React.createElement("h1", {}, "i am h1 tg")
+      React.createElement("h1", {}, "i am h1 hello tg")
     
   )
 );
