@@ -25,6 +25,7 @@ const va_r = 10000;
 const Learning = () => (
   <div id="container">
     <Title />
+    {Title()}
     {element}
     {va_r}
     <Fn />
@@ -46,3 +47,5 @@ const Learning = () => (
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(<Learning />);
+
+
