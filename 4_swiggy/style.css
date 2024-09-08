@@ -25,13 +25,18 @@
   list-style: none;
 
 }
-.Res-Card:hover{
-  /* border-radius: 30px; */
-  border: 1px solid black;
-  /* box-shadow: 4px; */
 
-  cursor: pointer;
-  border-radius: 3px;
+
+.Res-Card:hover{
+  border-radius: 30px; 
+  border: 1px solid black;
+  box-shadow: 4px;
+
+  /* cursor: pointer/ */
+  /* width: 50px; */
+  /* size: 3px; */
+  /* height: 50px; */
+  /* transition: all 200ms linear; */
 
 
 
@@ -40,18 +45,29 @@
   /* display: flex; */
   /* flex-wrap: wrap; */
   width: 200px;
-  height: 300px;
+  /* height: 340px; */
   font-size: 10px; 
-  background-color: #f0f0f0;
+  background-color: #ffffff;
   padding-left: 5px;
   margin: 18px;
 
+
   /* border-radius: 30px; */
+
+  /* position: absolute; */
+  /* left: 15px; */
+  /* top: 15px; */
+  /* background-color: #2980b9; */
+  /* box-sizing: border-box; */
+  /* width: 100px; */
+  /* height: 100px; */
 
   
   
   /* padding-top: 10px; */
 }
+
+
 
 .SearchBar{
   padding: 5px;
@@ -63,6 +79,7 @@
   padding-top: 10px;
   padding:5px;
   padding-bottom: 0px;
+  border-radius: 10px;
 }
 
 .name{
@@ -75,4 +92,9 @@
   flex-wrap: wrap;
   /* margin: 5px; */
 
+}
+
+.filter-btn{
+  margin: 10px;
+  cursor: pointer;
 }

@@ -1,0 +1,25 @@
+.due{
+  display:block; 
+}
+
+.bulb{
+  width: 130px;
+  height: 130px;
+}
+.btn{
+  padding: 10;
+  width:99px ;
+  border-radius: 20px;
+  /* background-color: gold; */
+}
+*{
+  background-color: rgb(255, 255, 255);
+}
+
+.light{
+  font-style:italic;
+  font-weight: bold;
+  margin: 10px;
+  margin-left: 35px;
+
+}

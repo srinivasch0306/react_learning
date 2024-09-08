@@ -1,0 +1,1 @@
+{"mappings":"AAAA,8CAA8C;AAC9C,6BAA6B;AAE7B,8CAA8C;AAC9C,6BAA6B","sources":["script.js"],"sourcesContent":["// const heading=document.createElement(\"h1\");\n// heading.innerHTML=\"hello\";\n\n// const root=document.getElementById(\"root\");\n// root.appendChild(heading);\n"],"names":[],"version":3,"file":"index.672d4772.js.map","sourceRoot":"/__parcel_source_root/"}
