@@ -1,0 +1,33 @@
+/* Styling for the container to use Grid */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Creates responsive columns */
+  gap: 20px; /* Spacing between cards */
+  padding: 20px;
+  max-width: 1200px; /* Limits the maximum width of the container */
+  margin: 0 auto; /* Centers the container horizontally */
+}
+
+/* Styling for individual weather report cards */
+.weather-report {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.weather-report:hover {
+  transform: scale(1.05);
+  background-color: #fafafa;
+}
+
+.weather-description{
+  font-size: 25px;
+
+}
+
+.temperature{
+  font-size: 25px;
+}

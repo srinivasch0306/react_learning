@@ -65,3 +65,35 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.Shimmaerconatiner{
+  display: flex;
+}
+
+
+.shimmercard{
+  width: 200px;
+  height: 350px;
+  /* background-color: gray; */
+  padding:25px;
+  display: flex;
+  margin: 10px;
+  border: 1px solid black;
+
+
+
+}
+
+
+.login{
+  width: 150px;
+  height: 100px;
+  margin: 10px;
+  border-radius: 30px;
+}
+
+
+.searchp{
+  /* margin-right: 10px; */
+  /* padding: 10px; */
+}

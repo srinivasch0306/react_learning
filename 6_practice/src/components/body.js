@@ -3,7 +3,6 @@
 // import {RatingFilter} from "./RatingFilter";
 // import {useState,useEffect}from "react"
 
-
 // const Body = () => {
 //   // const [ListofRest,setListOfRestra]=useState()
 //   const [res, setListRestra] = useState([]);
@@ -25,26 +24,20 @@
 
 // };
 
-
-
 //   useEffect(() => {
 //     console.log("useEffect running");
 //     fetchData();
 //   }, []);
-
 
 //   const filterByRating = () => {
 //     const filteredList = RatingFilter(ResList); // Call the filter function
 //     setListRestra(filteredList); // Update the state with filtered results
 //   };
 
-
-
-
 //   return (
 
 //     <div className="Body">
-//       <div className="Filter-btn"> 
+//       <div className="Filter-btn">
 //         <button className="filter" onClick={filterByRating}>Top Tated restra</button>
 //       </div>
 //       <div className="Rest-container">
@@ -75,15 +68,17 @@
 //   );
 // };
 
-
 // export default Body;
 
 import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import { RatingFilter } from "./RatingFilter";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [res, setListRestra] = useState([]);
+
+  const [searchText, setsearchText] = useState("");
 
   // const fetchData = async () => {
   //     const response = await fetch(
@@ -91,40 +86,41 @@ const Body = () => {
   //     );
   //     const json = await response.json();
 
-      // const restaurants = json.data.success.cards[3].gridElements.infoWithStyle.restaurants;
+  // const restaurants = json.data.success.cards[3].gridElements.infoWithStyle.restaurants;
 
   //     // console.log(restaurants)
-      
 
   // };
   const fetchData = async () => {
-      const response = await fetch(
-        "https://www.swiggy.com/mapi/homepage/getCards?lat=12.96340&lng=77.58550"
-      );
+    const response = await fetch(
+      "https://www.swiggy.com/mapi/homepage/getCards?lat=12.96340&lng=77.58550"
+    );
 
-      // Check if the response is OK
-      // if (!response.ok) {
-      //   throw new Error(`HTTP error! status: ${response.status}`);
-      // }
+    // Check if the response is OK
+    // if (!response.ok) {
+    //   throw new Error(`HTTP error! status: ${response.status}`);
+    // }
 
-      const json = await response.json();
-      console.log(json.data.success.cards[3].gridWidget.gridElements.infoWithStyle.restaurants)
+    const json = await response.json();
+    console.log(
+      json.data.success.cards[3].gridWidget.gridElements.infoWithStyle
+        .restaurants
+    );
 
-      // Check if the response has the expected structure
-      // const raurants = json.data.success.cards[3].gridElements.infoWithStyle.restaurants;
+    // Check if the response has the expected structure
+    // const raurants = json.data.success.cards[3].gridElements.infoWithStyle.restaurants;
 
-      setListRestra(json.data.success.cards[3].gridWidget.gridElements.infoWithStyle.restaurants)
+    setListRestra(
+      json.data.success.cards[3].gridWidget.gridElements.infoWithStyle
+        .restaurants
+    );
 
+    // console.log(raurants)
 
+    // setListRestra(json?.data?.success?.cards[3]?.gridElements?.infoWithStyle?.restaurants)
 
-      // console.log(raurants)
-
-      // setListRestra(json?.data?.success?.cards[3]?.gridElements?.infoWithStyle?.restaurants)
-
-      // console.log(setListRestra)
-      // console.log(res)
-
-
+    // console.log(setListRestra)
+    // console.log(res)
   };
 
   useEffect(() => {
@@ -137,15 +133,44 @@ const Body = () => {
     const filteredList = RatingFilter(res); // Use fetched data for filtering
     setListRestra(filteredList); // Update state with filtered results
   };
+
+  // if (res.length=== 0) {
+  //   return <Shimmer />;
+  // }
   // console.log(res)
 
   return (
     <div className="Body">
-      <div className="Filter-btn">  
-        <button className="filter" onClick={filterByRating}>Top Rated Restaurants</button>
+      <div className="Filter-btn">
+        <div className="searchp">
+          <input
+            type="text"
+            className="search"
+            value={searchText}
+            onChange={(e) => {
+              setsearchText(e.target.value);
+            }}
+          />
+          <button
+            className="search-btn"
+            onClick={() => {
+              console.log(searchText);
+              const filteredrestra = res.filter((value) => {
+                value.info.name.toLowerCase().includes(searchText.toLowerCase())
+              });
+              setListRestra(filteredrestra);
+            }}
+          >
+            Search
+          </button>
+        </div>
+
+        <button className="filter" onClick={filterByRating}>
+          Top Rated Restaurants
+        </button>
       </div>
       <div className="Rest-container">
-        {res.map(restaurant => (
+        {res.map((restaurant) => (
           <Card key={restaurant.info.id} info={restaurant.info} />
         ))}
       </div>

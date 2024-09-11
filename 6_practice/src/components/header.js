@@ -1,6 +1,11 @@
 import log from "../data/Mockdata";
+import { useState } from "react";
 
 const Header = () => {
+  const n1=0;
+
+  const [login,reslogin]=useState("login")
+  const [n,newn]=useState(n1);
   return (
     <div className="Header">
       <div className="logo">
@@ -12,6 +17,22 @@ const Header = () => {
           <li>Contact us</li>
           <li>Cart</li>
           <li>Filter</li>
+
+          <button className="login" onClick={()=>{
+            if(login==="login"){
+              // n1=1;
+              newn(n+1)
+              // newn(n1)
+            
+              
+              reslogin("logout")
+            }else{
+              // n1=n1+1;
+              newn(n+1)
+              reslogin("login")
+            }
+
+          }}>{login}{n}</button>
         </ul>
       </div>
     </div>
